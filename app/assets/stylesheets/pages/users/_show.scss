@@ -1,0 +1,97 @@
+
+.container-user-show {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-user-show .back-button {
+ color:  #0F2C59;
+}
+
+.container-user-show .edit-button{
+  color:  #0F2C59;
+}
+
+.container-show-user .image_centre {
+  text-align: center;
+}
+
+.container-show-user .user-greeting {
+  font-size: 21px;
+}
+
+.container-show-user .certif-button {
+  font-size: 50px
+}
+
+.container-show-user .myfavlist {
+    width: 400px;
+    height: 65px;
+    background: #435585;
+}
+
+.container-show-user .heart {
+  color: #ffffff;
+  font-size: 30px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.container-show-user .title {
+  color: #ffffff;
+  font-size: 20px;
+  margin-left: 20px;
+  margin-right: 10px;
+  padding-top: 20px;
+  text-align: left;
+}
+
+.container-show-user .effect{
+  margin-top: 10px;
+  width: 370px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container-show-user .effect:hover{
+  background-color: #0F2C59;
+  .card-trip-pricing i, h2{
+    color: white !important;;
+  }
+}
+.yoda-modal{
+  width: 100px;
+  height: auto;
+}
+@keyframes rotating {
+  0% {
+    transform: rotateY(0);
+  }
+  25% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  75% {
+    transform: rotateY(360deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.rotating {
+  animation: rotating 10s linear infinite;
+}
+
+
+.container-show-user .title-container{
+  display: flex;
+  flex-direction: row;
+}
+.container-show-user .title-container h2{
+  margin-left: 14px;
+  margin-top: 2px;
+}

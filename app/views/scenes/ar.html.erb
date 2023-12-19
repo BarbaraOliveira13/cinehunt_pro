@@ -1,0 +1,10 @@
+<div data-controller="ar"></div>
+<a-scene embedded arjs>
+  <a-assets>
+    <video id="video" loop="true" src="<%= @scene.video.attached? ? cl_video_path(@scene.video&.key) : 'https://res.cloudinary.com/djwoknd7s/video/upload/v1701879953/production/s3sajllv8v5ru6l16k78sdxrrk27.mp4' %>" crossorigin webkit-playsinline playsinline controls></video>
+  </a-assets>
+  <a-marker preset="hiro">
+    <a-video src="#video" width="16" height="9" position="0 0 -20"></a-video>
+    <a-entity camera></a-entity>
+  </a-marker>
+</a-scene>

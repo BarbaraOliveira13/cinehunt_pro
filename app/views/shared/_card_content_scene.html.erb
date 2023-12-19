@@ -1,0 +1,40 @@
+
+  <div class="cardcontent col-sm-10 col-sm-offset-1">
+    <div class="row">
+      <div class="col-2">
+        <i class="fa-solid fa-ticket" style="color: #405372;"></i>
+      </div>
+      <div class="col-10">
+        <div class="card-body">
+          <h5>L'accès au lieu de tournage coûte <%= @scene.price %> €</h5>
+        <h6>Plus d'infos : <%= link_to "ICI", @scene.link %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cardcontent col-sm-10 col-sm-offset-1">
+    <div class="row">
+      <div class="col-2">
+        <i class="fa-solid fa-clock" style="color: #405372;"></i>
+      </div>
+      <div class="col-10">
+        <div class="card-body">
+          <h5>Durée moyenne sur place : <%= @scene.time %></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cardcontent col-sm-10 col-sm-offset-1">
+    <div class="row">
+      <div class="col-2">
+        <i class="fa-solid fa-lightbulb" style="color: #2c4063;"></i>
+      </div>
+      <div class="col-10">
+        <div class="card-body">
+          <h6><%= @scene.content %></h6>
+        </div>
+      </div>
+    </div>
+  </div>

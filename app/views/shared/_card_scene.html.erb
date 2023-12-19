@@ -1,0 +1,29 @@
+
+
+<div class="card-trip">
+
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= scene.title %></h2>
+      <p><%= scene.movie.title %></p>
+    </div>
+    <div class="card-trip-pricing">
+      <% if favorite && favorite.favorite_list.user == current_user %>
+        <%= link_to favorite_path(favorite), data: { turbo_method: :delete } do %>
+          <i class="fa-solid fa-heart fa-xl" style="color: #0F2C59;"></i>
+        <% end %>
+      <% else %>
+      <%= render "scenes/modal", favorite: @favorite, scene: scene %>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to cl_image_tag(scene.photo.key, width: 390, height: 200, crop: :fill), scene_path(scene) %>
+  <div class="card-trip-infos-right">
+    <div>
+      <h2><%= scene.place.city %></h2>
+      <p><%= scene.place.country %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= scene.rating.to_i %>/5</h2>
+  </div>
+</div>

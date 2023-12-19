@@ -1,0 +1,35 @@
+<%# <button type="button" class="btn btn-primary" data-bs-toggle="modal_map" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+  <!-- Scrollable modal -->
+ <div class="modal-body">
+   <div style="width: 100%; height: 600px;"
+   data-controller="map"
+   data-map-markers-value="<%= @markers.to_json %>
+   <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
+   <%# </div>
+ </div> %>
+
+<!-- Button trigger modal <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button> -->
+<%= image_tag("carte.png", class: "map-modal rotating", data: { bs_toggle: "modal", bs_target: "#staticBackdrop" }) %>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="map-container" style="position: relative; width: 100%; height: 100vh;">
+          <div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;"
+          data-controller="map"
+          id="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+
+    </div>
+  </div>
+</div>

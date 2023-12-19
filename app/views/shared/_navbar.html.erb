@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #084177;">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="border: none">
+      <i class="fa-solid fa-bars fa-xl" style="color: #ffffff;"></i>
+    </button>
+
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag("cinehunt.png", alt: "CINEHUNT feed", class: "logo img-fluid", style: "width: 150px;") %>
+    <% end %>
+
+    <div class="d-lg-none ml-2 order-lg-1">
+      <%= link_to "#", class: "nav-link text-white", data: { bs_toggle: "modal", bs_target: "#searchModal" } do %>
+        <i class="fas fa-search fa-xl"></i>
+      <% end %>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto text-center">
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to user_path(current_user), class: "nav-link text-white" do %>
+              Mon profil
+            <% end %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+          <% if user_signed_in? %>
+            <%= link_to favorite_lists_path, class: "nav-link text-white" do %>
+              Mes favoris
+            <% end %>
+            <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link text-white" do %>
+              Se déconnecter
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path, class: "nav-link text-white" do %>
+              Connexion
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog modal-dialog-scrollable custom-rounded">
+    <div class="modal-content custom-rounded" style="background-color: #084177; color: #ffffff;">
+      <%= form_with url: scenes_path, method: :get do %>
+        <div class="modal-header">
+          <h3 class="modal-title text-center" id="searchModalLabel" style="color: #ffffff;">Recherche</h3>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group rounded">
+            <%= text_field_tag :query, params[:query], class: "form-control rounded-pill", placeholder: "Ex: Forrest Gump " %>
+            <button class="btn btn-outline-success border-0 rounded-pill" type="submit" style="background-color: transparent;">
+              <i class="fas fa-search fa-2xl"></i>
+            </button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+
+
+
+
+.btn_container {
+  justify-content: center;
+  text-align: center;
+  border-radius:5px;
+  border:1px solid #0F2C59;
+  display:inline-block;
+  color:#0F2C59;
+  font-size:12px;
+  font-weight:bold;
+  // padding-right:10px;
+  // padding-left:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  text-decoration:none;
+  text-shadow:0px 0px 0px #70706f;
+  margin-left: 100px
+}
+
+.checked {
+  color: white;
+  border:1px solid #0F2C59;
+}
+
+.list-reviews {
+  padding-top:20px;
+  border-bottom:1px solid #0F2C59;
+
+}
+
+.rating-moyen {
+  justify-content: center;
+  padding-top:30px;
+  padding-bottom:20px;
+}
+
+.card-review{
+    box-sizing: border-box; /* Inclut la bordure et le remplissage dans la largeur totale */
+    border-bottom: 1px solid black; /* Bordure inférieure */
+    width: 80%; /* Largeur totale de la div */
+    padding: 10px; /* Remplissage intérieur (à ajuster selon vos besoins) */
+    margin: 0 auto;
+}
+
+.container-form{
+  margin-top: 20px;
+}
+.scene-create{
+  margin-bottom: 10px;
+}
+
+.yoda-flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

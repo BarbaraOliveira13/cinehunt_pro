@@ -1,0 +1,28 @@
+
+<% if @user.certified? %>
+<div class="level-container">
+  <div class="cadre">
+    <div class="content">
+    <%= image_tag("user.png", class: "level-modal", data: { bs_toggle: "modal", bs_target: "#staticBackdrop" }) %>
+      <p class="level">Bonjour <%= @user.username %></p>
+      <p class="level">Niveau : Maitre Jedi</p>
+      <p class="point">Points : <%= @user.level %> / 100</p>
+    </div>
+    <div class="sabre">
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="level-container">
+  <div class="cadre">
+    <div class="content">
+    <%= image_tag("test.jpg", class: "level-modal", data: { bs_toggle: "modal", bs_target: "#staticBackdrop" }) %>
+      <p class="level">Bonjour <%= @user.username %></p>
+      <p class="level">Niveau : Padawan</p>
+      <p class="point">Points : <%= @user.level %> / 100</p>
+    </div>
+    <div class="sabre2">
+    </div>
+  </div>
+</div>
+<% end %>

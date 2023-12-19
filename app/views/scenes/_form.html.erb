@@ -1,0 +1,24 @@
+<div class="form-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-4">
+        <%= simple_form_for scene do |f| %>
+          <%= f.association :movie, label: 'Titre du film/série' %>
+          <%= f.input :title, label: 'Titre de la scene' %>
+          <%= f.input :content, label: 'Description de la scene' %>
+
+
+          <%= f.input :country, as: :text, label: 'Pays' %>
+          <%= f.input :city, as: :text, label: 'Ville' %>
+          <%= f.input :address, as: :text, label: 'Adresse' %>
+          <%= f.input :payant, as: :boolean, label: 'Accessible gratuitement' %>
+          <%= f.input :time, label: 'Durée de visite moyenne' %>
+          <%= f.input :link, label: 'Lien vers le lieu' %>
+          <%= f.input :photo, as: :file, input_html: { data: { action: "change->photo-preview#displayPreview", photo_preview_target: "photoInput"} } %>
+          <%= f.input :video, as: :file, input_html: { data: { action: "change->video-preview#displayPreview", video_preview_target: "videoInput"} } %>
+          <%= f.button :submit, 'Ajouter le lieu de tournage'%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

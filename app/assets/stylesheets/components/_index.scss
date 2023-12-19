@@ -1,0 +1,63 @@
+// Import your components CSS files here.
+@import "alert";
+@import "avatar";
+@import "form_legend_clear";
+@import "navbar";
+@import "footer";
+@import "button";
+@import "card_scene";
+@import "card_map";
+@import "card_content_scene";
+@import "show";
+@import "favorite_box";
+@import 'map';
+@import "level";
+@import "backtofutur";
+@import "ar_button";
+
+body{
+  background-color: #EEEEEE;
+  font-family:'Oswald', sans-serif;
+  color: #0F2C59;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+h1 {
+  font-family:'Oswald', sans-serif;;
+  text-align: center;
+  font-size: 37px;
+  color: black;
+}
+
+h2 {
+  font-family:"quicksand", light;
+  text-align:justify;
+  font-size: 30px;
+  color: #0F2C59;
+}
+
+h3 {
+  font-family:"quicksand", light;
+  text-align:justify;
+  font-size: 25px;
+  color: #0F2C59;
+}
+
+h4 {
+  font-family:"quicksand", light;
+  text-align:justify;
+  font-size: 20px;
+}
+
+h5 {
+  font-family:"quicksand", bold;
+  text-align:justify;
+  font-size: 15px;
+}
+
+h6 {
+  font-family:"quicksand", light;
+  text-align:justify;
+  font-size: 14px;
+  color: #0F2C59;
+}

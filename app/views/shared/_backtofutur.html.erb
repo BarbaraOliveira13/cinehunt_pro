@@ -1,0 +1,13 @@
+<div class="futur-container" data-controller="backfutur">
+  <%#= link_to scenes_path, class: "navbar-brand" do %>
+    <div class="non-active" data-action="click->backfutur#test" data-backfutur-target="voiture1">
+    <div class="voiture">
+      <%= image_tag("voiture2.png", class: "voiture")%>
+    </div>
+    </div>
+  <%# end %>
+  <div class="active d-none" data-backfutur-target="voiture2">
+    <%= image_tag("voiture2.png", class: "voiture2") %>
+    <%= image_tag("fire.gif", class: "fire") %>
+  </div>
+</div>

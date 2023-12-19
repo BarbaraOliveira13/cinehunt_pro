@@ -1,0 +1,27 @@
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="card shadow p-4">
+    <h1 class="text-center mb-4">Créer une nouvelle liste de favoris    <i class="fa-solid fa-wand-sparkles"></i> </h1>
+
+    <%= simple_form_for @favorite_list do |f| %>
+      <div class="mb-3">
+        <%= f.label :name, class: "form-label text-secondary" %>
+        <%= f.text_field :name, class: "form-control", placeholder: "Nom de la liste", required: true %>
+      </div>
+
+      <div class="text-center">
+       <%= hidden_field_tag :origin_url, nil, id: 'originUrl' %>
+        <%= f.button :submit, 'Créer la liste de favoris', class: 'btn btn-primary btn-lg', onclick: "setOriginUrl()" %>
+      </div>
+    <% end %>
+
+    <div class="text-center mt-3">
+      <%= link_to 'Retour à la liste des favoris', favorite_lists_path, class: 'btn btn-outline-secondary' %>
+    </div>
+  </div>
+</div>
+<script>
+  function setOriginUrl() {
+
+    document.getElementById('originUrl').value = document.referrer || window.location.href;
+  }
+</script>

@@ -1,0 +1,47 @@
+
+.card-map {
+  overflow: hidden;
+  background: #FFFBF6;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+
+}
+
+.card-map > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-map h2 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-map p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-map .card-map-infos {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-map .card-map-infos-right {
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}

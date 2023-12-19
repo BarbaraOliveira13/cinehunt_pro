@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="scene-container d-flex align-items-center justify-content-center">
+  <hr>
+  <div data-aos="fade-left" data-aos-duration="1000">
+    <% if @query_param %>
+      <h3>Votre recherche : <%= @query_param %></h3>
+    <% else %>
+      <h3>Vous n'avez pas de recherches</h3>
+    <% end %>
+  </div>
+  <hr>
+  </div>
+  <%= render partial: "modal_map" %>
+  <% if @scenes.any? %>
+    <ul class="cards-scene" data-controller="aos">
+      <% @scenes.each do |scene| %>
+      <div data-aos-duration="1000">
+      <%# <div data-aos="flip-up" data-aos-duration="1000"> %>
+        <% @current_favorite = Favorite.find_by(scene: scene) %>
+        <li class="card-scene"><%= render partial: "shared/card_scene", locals: { scene: scene, favorite: @current_favorite } %></li>
+      </div>
+      <% end %>
+    </ul>
+ <% else %>
+  <div class="yoda-flex-center">
+    <%= render "shared/yoda", text: "Des résultats il n'y a pas" %>
+  </div>
+<% end %>
+
+  <%= render partial: "modal_map"%>
+
+<%#= link_to "Map", map_path, class: 'btn-card' %>
+</div>

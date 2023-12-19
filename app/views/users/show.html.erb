@@ -1,0 +1,101 @@
+<div class="container-show-user">
+  <div class="title">
+    <h2>Profil</h2>
+  </div>
+  <%= render partial: "scenes/level"%>
+  <div class="title">
+    <h2>Accueil de voyageurs</h2>
+  </div>
+  <% if current_user.certified? %>
+    <%= link_to new_scene_path do %>
+      <div class="card-trip effect">
+        <div class="card-trip-infos">
+          <div class="title-container">
+            <div class="card-trip-pricing">
+              <i class="fa-solid fa-plus fa-xl" style="color: #0F2C59;"></i>
+            </div>
+            <h2>PUBLIER VOTRE SCENE</h2>
+          </div>
+          <div class="card-trip-pricing">
+            <i class="fa-solid fa-chevron-right fa-xl" style="color: #0F2C59;"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+    <%= link_to favorite_lists_path do %>
+    <div class="card-trip effect">
+      <div class="card-trip-infos">
+        <div class="title-container">
+          <div class="card-trip-pricing">
+            <i class="fa-regular fa-heart fa-xl" style="color: #0F2C59;"></i>
+          </div>
+          <h2>MES LISTES DE FAVORIS</h2>
+        </div>
+        <div class="card-trip-pricing">
+          <i class="fa-solid fa-chevron-right fa-xl" style="color: #0F2C59;"></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+    <%= link_to root_path do %>
+    <div class="card-trip effect">
+      <div class="card-trip-infos">
+        <div class="title-container">
+          <div class="card-trip-pricing">
+            <i class="fa-solid fa-gift fa-xl" style="color: #0F2C59;"></i>
+          </div>
+          <h2>PARRAINER UN AMI</h2>
+        </div>
+        <div class="card-trip-pricing">
+          <i class="fa-solid fa-chevron-right fa-xl" style="color: #0F2C59;"></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+      <%= link_to root_path do %>
+    <div class="card-trip effect">
+      <div class="card-trip-infos">
+        <div class="title-container">
+          <div class="card-trip-pricing">
+            <i class="fa-solid fa-book fa-xl" style="color: #0F2C59;"></i>
+          </div>
+          <h2>POLITIQUE DE CONFIDENTIALITEE</h2>
+        </div>
+        <div class="card-trip-pricing">
+          <i class="fa-solid fa-chevron-right fa-xl" style="color: #0F2C59;"></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+    <div class="title">
+      <h2>Mes derniers favoris</h2>
+    </div>
+    <div id="carouselExample" class="carousel slide favorite">
+      <div class="carousel-inner">
+        <% current_user.favorites.each_with_index do |favorite, index| %>
+          <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+            <%= render "shared/card_scene", scene: favorite.scene, favorite: favorite %>
+          </div>
+        <% end %>
+      </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <%# %>
+    <div class="title">
+      <h2>Mes scènes publié</h2>
+    </div>
+      <% current_user.scenes.each do |scene| %>
+      <div class="scene-create">
+    <% @current_favorite = Favorite.find_by(scene: scene) %>
+    <%= render "shared/card_scene", scene: scene, favorite: @current_favorite %>
+    </div>
+  <% end %>
+</div>

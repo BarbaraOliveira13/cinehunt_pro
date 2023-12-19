@@ -1,0 +1,42 @@
+
+
+<i class="fa-regular fa-heart fa-xl custom-btn top-fixed" data-bs-toggle="modal" data-bs-target="#favorite<%= scene.id %>Modal" style="color: #0F2C59;"></i>
+
+
+<div class="modal fade" id="favorite<%= scene.id %>Modal" tabindex="-1" aria-labelledby="favorite<%= scene.id %>ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="favorite<%= scene.id %>ModalLabel">Ajouter aux favoris</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <% if current_user.favorite_lists.any? %>
+          <%= simple_form_for Favorite.new, url: favorites_path, method: :post do |f| %>
+            <%= f.hidden_field :scene_id, value: scene.id if scene%>
+            <div class="form-group mt-3">
+              <%= f.collection_select :favorite_list_id, current_user.favorite_lists, :id, :name, { prompt: "Sélectionner une liste" }, class: 'form-select' %>
+            </div>
+            <div class="form-group mt-3">
+             <%= f.button :submit, 'Ajouter', class: 'btn btn-link', onclick: 'submitWithRedirect()' %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>Vous n'avez pas encore de listes de favoris. Créez-en une maintenant :</p>
+          <%= link_to "Créer une nouvelle liste", new_favorite_list_path, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function submitWithRedirect() {
+    const originUrl = document.getElementById('originUrl').value;
+    document.querySelector('form').submit();
+    window.location.href = originUrl;
+  }
+</script>

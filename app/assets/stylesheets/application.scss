@@ -1,0 +1,31 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+@import "pages/index";
+@import "components/_footer.scss";
+@import "pages/scene_index";
+@import "pages/scene_new";
+
+@import "pages/form";
+@import "components/_favorite_box.scss";
+
+@import "components/favorite_list_index";
+
+body {
+  min-height: 100vh;
+  font-family: 'Comfortaa', sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}

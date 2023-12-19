@@ -1,0 +1,34 @@
+<% place.scenes.each do |scene| %>
+<%# <li class="card-scene"><%= render partial: "shared/card_scene", locals: { scene: scene } %>
+
+  <div class="card-map">
+
+  <div class="card-map-infos">
+    <div>
+      <h2><%= scene.title %></h2>
+      <p><%= scene.movie.title %></p>
+    </div>
+    <div class="card-map-pricing">
+      <% if current_user.favorite_scenes.where(id: scene.id).first.nil? %>
+      <%= render "scenes/modal", favorite: @favorite, scene: scene %>
+      <% else %>
+        <i class="fa-solid fa-heart fa-xl" style="color: #0F2C59;"></i>
+      <% end %>
+    </div>
+  </div>
+
+  <%= link_to cl_image_tag(scene.photo.key, width: 156, height: 80, crop: :fill), scene_path(scene) %>
+  <div class="card-map-infos-right">
+    <div>
+      <h2><%= scene.place.city %></h2>
+      <p><%= scene.place.country %></p>
+    </div>
+    <h2 class="card-map-pricing"><%= scene.rating.to_i %>/5</h2>
+  </div>
+</div>
+
+
+
+
+
+<% end %>

@@ -1,0 +1,29 @@
+.cards-scene{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px
+}
+.card-scene{
+  margin-bottom: 15px;
+}
+.scene-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.btn-card{
+  border: 1px solid black;
+  background-color: #0F2C59;
+  text-decoration: none;
+  color:#EADBC8;
+  vertical-align: center;
+  height: 30px;
+  border-radius: 5px 5px 5px 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 12px;
+}
+.btn-card:hover{
+  background-color: #435585;
+  color: #F8F0E5;
+}
